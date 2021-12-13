@@ -5,7 +5,7 @@ pipeline {
       steps {
         echo "Setup"
         sh "cd android"
-        sh "fastlane beta"
+        sh "bundle exec fastlane beta"
       }
     }
   }
