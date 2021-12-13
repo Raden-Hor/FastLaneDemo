@@ -1,6 +1,12 @@
-stage('Setup') {
-  steps {
-    echo "Setup"
-    
+# ! groovy
+
+pipeline {
+  agent any
+  stages {
+    stage('Setup') {
+      steps {
+        echo "Setup"
+      }
+    }
   }
 }
