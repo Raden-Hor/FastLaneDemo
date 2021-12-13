@@ -1,0 +1,9 @@
+app_identifier("com.ezpizee.test") # The bundle identifier of your app
+apple_id("raden.hor@ezpizee.com") # Your Apple email address
+
+itc_team_id("121877556") # App Store Connect Team ID
+team_id("JY76R5BAKY") # Developer Portal Team ID
+app_identifier("com.ezpizee.test")
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

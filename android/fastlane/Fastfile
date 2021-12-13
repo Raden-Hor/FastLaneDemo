@@ -1,0 +1,55 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+platform :android do
+  desc "Runs all the tests"
+  lane :test do
+    gradle(task: "test")
+  end
+
+  desc "Submit a new Beta Build to Crashlytics Beta"
+  lane :beta do
+    gradle(task: "clean assembleRelease")
+    store_password = "098098aA#@!"
+    
+    key_password = "098098aA#@!"
+    releaseFilePath = File.join(Dir.pwd, "eztest-key.keystore")
+    gradle(task: 'clean')
+    gradle(
+      task: 'assemble',
+      build_type: 'Release',
+      print_command: false,
+      properties: {
+        "android.injected.signing.store.file" => releaseFilePath,
+        "android.injected.signing.store.password" => store_password,
+        "android.injected.signing.key.alias" => "eztest-key",
+        "android.injected.signing.key.password" => key_password,
+      }
+    )
+    desc "Upload file to google drive"
+    file_path = lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]
+
+    upload_to_google_drive(
+      drive_keyfile: "fastlane/fastlanedemoGoogleDrive.json",
+      service_account: true,
+      folder_id: "1XKxWlLlnmVd0AnCRteOLXTz-3iPsj2J7",
+      upload_files: [''+file_path+'']
+    )
+    # sh "your_script.sh"
+    # You can also use other beta testing services here
+  end
+end
