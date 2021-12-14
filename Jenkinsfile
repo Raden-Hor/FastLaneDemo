@@ -22,14 +22,14 @@ pipeline {
 //           sh "ls -l"
 //           sh "fastlane beta"
 //         }
-        dir('ios') {
-          sh "ls -l"
-          sh "rm -rf Pods"
-          sh "rm -rf Podfile.lock"
-          sh "rm -rf ~/Library/Developer/Xcode/DerivedData/*"
-          sh "pod install"
-          sh "fastlane beta"
-        }
+//         dir('ios') {
+//           sh "ls -l"
+//           sh "rm -rf Pods"
+//           sh "rm -rf Podfile.lock"
+//           sh "rm -rf ~/Library/Developer/Xcode/DerivedData/*"
+//           sh "pod install"
+//           sh "fastlane beta"
+//         }
       }
     }
   }
