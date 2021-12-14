@@ -7,7 +7,7 @@ pipeline {
         sh "ls -l"
         sh "pwd"
         // Install fastlane
-        sh "sh /var/jenkins_home/test.sh"
+        sh "docker exec 48d1bf786499 brew -v"
         sh "cd android"
         sh "bundle exec fastlane beta"
       }
