@@ -16,6 +16,10 @@ pipeline {
           sh "ls -l"
           sh "fastlane beta"
         }
+        dir('ios') {
+          sh "ls -l"
+          sh "fastlane beta"
+        }
       }
     }
   }
