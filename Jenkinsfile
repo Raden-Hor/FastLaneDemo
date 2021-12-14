@@ -10,12 +10,10 @@ pipeline {
         sh "gem -v"
         sh "docker -v"
         sh "fastlane -v"
-        sh script:'''
-          #!/bin/bash
-          cd android
-        '''
-        sh "ls -l"
-        sh "fastlane beta"
+        dir('android') {
+          sh "ls -l"
+          sh "fastlane beta"
+        }
       }
     }
   }
