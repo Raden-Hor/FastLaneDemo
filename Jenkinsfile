@@ -9,6 +9,7 @@ pipeline {
     stage('Setup') {
       steps {
         echo "Setup"
+        echo 'Pulling...' + env.BRANCH_NAME
         sh "ls -l"
         sh "pwd"
         // Install fastlane
