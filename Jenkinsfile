@@ -12,6 +12,7 @@ pipeline {
         sh "fastlane -v"
 //         sh "docker exec 48d1bf786499 brew -v"
         sh "cd android"
+        sh "ls -l"
         sh "fastlane beta"
       }
     }
