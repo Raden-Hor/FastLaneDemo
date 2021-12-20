@@ -16,7 +16,7 @@ pipeline {
         sh "gem -v"
         sh "docker -v"
         sh "fastlane -v"
-        echo "clear node cached
+        echo "clear node cached"
 //         sh "watchman watch-del-all && rm -rf node_modules && yarn"
 //         dir('android') {
 //           sh "ls -l"
