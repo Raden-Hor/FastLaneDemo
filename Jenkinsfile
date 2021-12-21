@@ -17,6 +17,10 @@ pipeline {
         sh "docker -v"
         sh "fastlane -v"
         echo "clear node cached"
+        sendGoogleChat("This is a _simple_ text message " +
+            "with a <https://github.com/mkutz/jenkins-google-chat-notification|link>" +
+            "\nand a line break, " +
+            "which might be interesting to <users/all> users in the Group.")
 //         sh "watchman watch-del-all && rm -rf node_modules && yarn"
 //         dir('android') {
 //           sh "ls -l"
